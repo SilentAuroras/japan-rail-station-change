@@ -1,0 +1,28 @@
+# Jupyter
+.ipynb_checkpoints
+*/.ipynb_checkpoints/*
+
+# PyCharm / Vscode
+.idea/
+.vscode/
+
+# Databricks
+variables.yml
+**.databricks/
+
+# Parquet
+*.parquet
+
+# Terraform
+terraform.tfvars
+
+# Python
+env/
+venv/
+ENV/
+env.bak/
+venv.bak/
+
+# Byte-code files
+*.pyc
+__pycache__/
