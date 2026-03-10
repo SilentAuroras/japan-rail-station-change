@@ -16,6 +16,12 @@ variables.yml
 # Terraform
 terraform.tfvars
 
+# Data folder for output
+local/data/*
+
+# Mac
+.DS_Store
+
 # Python
 env/
 venv/
