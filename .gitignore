@@ -16,6 +16,9 @@ variables.yml
 # Terraform
 terraform.tfvars
 
+# Large PBF files
+*.osm.pbf
+
 # Data folder for output
 local/data/*
 
