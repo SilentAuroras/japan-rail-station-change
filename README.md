@@ -38,10 +38,10 @@ Two versions of this project exist separately for different learning purposes.
    1. Databricks DABs are used to deploy the pipeline, a YAML file is created to deploy this pipeline [dab](databricks/databricks.yml)
    2. Deployment steps as follows:
       ```bash
-         databricks bundle validate
+      databricks bundle validate
       ```
       ```bash
-         databricks bundle deploy
+      databricks bundle deploy
       ```
 
 2. Local
