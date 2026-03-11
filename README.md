@@ -23,10 +23,10 @@ A report of the findings from the Jupyter notebook can be found [here](local/Dat
 ### Project Breakdown
 Two versions of this project exist separately for different learning purposes.
 
-1. [Databricks](databricks)
+1. Databricks
    1. This version uses a similar setup from the Jupyter notebook, but creates a deployment in the Databricks free tier.
    
-2. [Local](local)
+2. Local
    1. This version utilizes a Jupyter notebook for analysis, storing results in dataframes and parquet files. This version was created first.
    2. The two data sources for local analysis need to be downloaded at the following links, and placed in the public-datasets/ folder:
       1. 2016 OSM PBF: https://download.geofabrik.de/asia/japan-160101.osm.pbf
@@ -34,7 +34,7 @@ Two versions of this project exist separately for different learning purposes.
 
 ### Deployment
 
-1. [Databricks](databricks)
+1. Databricks
    1. Databricks DABs are used to deploy the pipeline, a YAML file is created to deploy this pipeline [dab](databricks/databricks.yml)
    2. Deployment steps as follows:
       ```bash
@@ -44,7 +44,7 @@ Two versions of this project exist separately for different learning purposes.
          databricks bundle deploy
       ```
 
-2. [Local](local)
+2. Local
    1. No deployment steps are necessary, open the notebook and step through each phase.
 
 ### Data sources
