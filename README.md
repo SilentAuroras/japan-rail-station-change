@@ -3,15 +3,15 @@
 ### Description
 The purpose of this project is to help identify areas in Japan that are underserved or overloaded based on the relationship between train station coverage and population density. The goal is to identify areas that do not have an appropriate number of stations, stations in wrong relative location for population centers, changes in stations, or general outliers.
 
-### Project Techniques Summary
-1. Acquire station data from OpenStreetMap sources (either API or Geofabrik extracts)
+### Project Techniques Steps
+1. Acquire station data from OpenStreetMap sources (API or Geofabrik extracts)
 2. Build Japan's national boundaries from national coastline geometry and generate H3 hex grids for analysis
-3. Use geopandas spatial join between stations and H3 cells to compute station count, station lists, and per-grid station coverage
+3. Use geopandas spatial join between stations and H3 cells to compute per-grid station count, station lists, and coverage
 4. Perform raster zonal analysis on WorldPop data and assign population to each H3 grid
-5. Compute accessibility metrics by measuring distance from each H3 centroid to the nearest station for each grid cell
-6. Create unified analysis tables (dataframes/parquet) for downstream filtering, charting, and model-ready features
-7. Run exploratory analysis with correlation heatmaps and clustering (KMeans) to identify outlier grids and population patterns
-8. Compare historical snapshots (2016 vs 2025) for population and station-change trends, then visualize results with Folium maps and matplotlib/seaborn charts
+5. Calculate neighbor distances by measuring distance from each H3 centroid to the nearest station for each grid cell
+6. Create unified analysis tables for downstream analysis
+7. Analysis with correlation heatmaps and clustering (KMeans) to identify outlier grids and population patterns
+8. Compare historical snapshots for population and station change trends, then visualize results with Folium maps and matplotlib charts
 
 ### Project Report
 A report of the findings from the Jupyter notebook can be found [here](local/Data%20Mining%20Project%20Final%20Report.pdf)
@@ -36,7 +36,8 @@ Two versions of this project exist separately for different learning purposes.
 
 1. Databricks
    1. Databricks DABs are used to deploy the pipeline, a YAML file is created to deploy this pipeline [dab](databricks/databricks.yml)
-   2. Deployment steps as follows:
+   2. Run the SQL commands to create catalog, schema, volumes [create-env.sql](databricks/create-env.sql)
+   3. Deployment steps as follows:
       ```bash
       databricks bundle validate
       ```
@@ -60,4 +61,3 @@ Two versions of this project exist separately for different learning purposes.
 - Population data: [WorldPop](https://hub.worldpop.org/geodata/summary?id=77823)
   - Producer: WorldPop
   - License: Creative Commons Attribution 4.0 International (CC BY 4.0)
-  - Credit: "WorldPop (www.worldpop.org) School of Geography and Environmental Science, University of Southampton; data licensed under CC BY 4.0."

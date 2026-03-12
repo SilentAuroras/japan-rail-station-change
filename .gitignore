@@ -9,6 +9,7 @@
 # Databricks
 variables.yml
 **.databricks/
+.databricks
 
 # Parquet
 *.parquet
