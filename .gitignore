@@ -36,3 +36,6 @@ venv.bak/
 # Byte-code files
 *.pyc
 __pycache__/
+
+# Databricks serverless datasets
+!**/databricks/data/*

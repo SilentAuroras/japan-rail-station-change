@@ -25,6 +25,29 @@ Two versions of this project exist separately for different learning purposes.
 
 1. Databricks
    1. This version uses a similar setup from the Jupyter notebook, but creates a deployment in the Databricks free tier.
+   2. Databricks serverless free-tier has issues with the following packages, so parsing is done locally:
+      1. osmium
+      2. rasterstats
+      3. rasterio
+   3. Since rasterio and rasterstats is not allowed on Databricks serverless due to GDAL requirements, the following parquet files are created with the following lines at the end of the local notebook:
+      ```python
+        # Add year to the final dataframes
+        final_df_2016['year'] = 2016
+        final_df_2025['year'] = 2025
+        
+        # Combine dataframes
+        df_combined = pd.concat([final_df_2016, final_df_2025], ignore_index=True)
+        
+        # Just take the 3 columns to assign population by grid
+        df_population = df_combined[['h3_id', 'population', 'year']].copy()
+        
+        # Write the data to parquet file
+        df_population.to_parquet('../databricks/data/population-by-grid.parquet')
+        ```
+   4. The following files will need to be uploaded to the created volume, due to serverless restrictions:
+      1. [stations-list-2016](databricks/data/stations-list-2016.parquet)
+      2. [stations-list-2025](databricks/data/stations-list-2025.parquet)
+      3. [population-by-grid](databricks/data/population-by-grid.parquet)
    
 2. Local
    1. This version utilizes a Jupyter notebook for analysis, storing results in dataframes and parquet files. This version was created first.
