@@ -96,8 +96,8 @@ class GridInfo:
 def grid_array_create_df(grid_array):
     """
     Takes in a grid_array list of objects and creates a final dataframe from it. Using built in methods to generate attributes
-    :param grid_array:
-    :return: final_df
+    :param grid_array: list of grid_obj for each grid
+    :return: final_df - final dataframe containing all grid attributes
     """
 
     # Define final dataframe
@@ -126,9 +126,9 @@ def grid_array_create_df(grid_array):
 def grid_assign_stations(coastline_h3, current_stations, grid_array):
     """
     Assign stations to grid array based on coordinates
-    :param coastline_h3:
-    :param current_stations:
-    :param grid_array:
+    :param coastline_h3: coastline h3 GeoDataFrame with H3 cell divisions
+    :param current_stations: array of current stations: name, latitude, longitude
+    :param grid_array: current grid_array to update
     :return: grid_array (updated)
     """
 
@@ -185,11 +185,10 @@ def grid_assign_stations(coastline_h3, current_stations, grid_array):
 def grid_assign_classification(final_df):
     """
     Assign classification to grid, rural vs urban
-    :param
-        final_df:
+    :param final_df: final dataframe for the year to update
     :return:
         classify_final_df (final dataframe with urban column added)
-        data (heatmap data0
+        data (heatmap data)
         m (map object)
     """
 
@@ -222,8 +221,8 @@ def grid_assign_classification(final_df):
 def assign_grid_centroid_neighbors(stations_list, grid_array):
     """
     Assign centroid distance to closest neighbor station
-    :param stations_list:
-    :param grid_array:
+    :param stations_list: array of current stations: name, latitude, longitude
+    :param grid_array: current grid_array to update
     :return: grid_array (updated)
     """
 
