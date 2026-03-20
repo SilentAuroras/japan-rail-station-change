@@ -14,7 +14,7 @@ The purpose of this project is to help identify areas in Japan that are underser
 8. Compare historical snapshots for population and station change trends, then visualize results with Folium maps and matplotlib charts
 
 ### Project Report
-A report of the findings from the Jupyter notebook can be found [here](local/Data%20Mining%20Project%20Final%20Report.pdf)
+A report of the findings from the Jupyter notebook can be found [here](local/Report.pdf)
 
 ### Requirements
 1. Databricks account and CLI (if using databricks version)
