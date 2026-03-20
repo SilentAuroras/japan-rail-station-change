@@ -1,0 +1,52 @@
+# Bundle name
+bundle:
+  name: japan_rail_station_change_bundle
+
+# Resources
+resources:
+
+  # Define pipeline
+  pipelines:
+    japan_rail_dlt_pipeline:
+      
+      # Name and catalog
+      name: "Japan Rail DLT Pipeline"
+      catalog: japan_rail
+      schema: rail_station_changes
+      
+      # Pipeline settings
+      development: false
+      continuous: false
+      photon: true
+      serverless: true
+
+      # Python dependencies
+      environment:
+        dependencies:
+          - folium
+          - geodatasets
+          - geopandas
+          - h3
+          - h3pandas
+          - numpy
+          - overpy
+          - pandas==2.2.3 # force 2.x otherwise get "kdf not defined" error
+          - shapely
+
+      # Define pipeline scripts
+      libraries:
+        # Script to read in stations parquet files
+        - file:
+            path: "./pipeline/stations_list_parse.py"
+        # Script to create grid array for population and stations
+        - file:
+            path: "./pipeline/create_grid_arrays.py"
+        # Script to generate coastline h3 dataframe
+        - file:
+            path: "./pipeline/coastline_h3_generate.py"
+        # Grids class helper script
+        - file:
+            path: "./pipeline/grids.py"
+        # Materialized views
+        - file:
+            path: "./pipeline/materialized_views.sql"
