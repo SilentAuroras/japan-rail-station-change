@@ -7,7 +7,8 @@ from coastline_h3_generate import create_coastline_h3
 # Define schema, pulled from grid_array_create_df
 SCHEMA = T.StructType([
     T.StructField("h3_id", T.IntegerType(), True),
-    T.StructField("centroid", T.ArrayType(T.DoubleType()), True),
+    T.StructField("centroid_latitude", T.DoubleType(), True),
+    T.StructField("centroid_longitude", T.DoubleType(), True),
     T.StructField("centroid_to_station_km", T.DoubleType(), True),
     T.StructField("population", T.IntegerType(), True),
     T.StructField("station_count", T.IntegerType(), True),

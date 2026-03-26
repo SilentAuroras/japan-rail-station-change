@@ -101,14 +101,15 @@ def grid_array_create_df(grid_array):
     """
 
     # Define final dataframe
-    columns = ["h3_id", "centroid", "centroid_to_station_km", "population", "station_count", "station_list", "per_capita_10k"]
+    columns = ["h3_id", "centroid_latitude", "centroid_longitude", "centroid_to_station_km", "population", "station_count", "station_list", "per_capita_10k"]
     rows = []
 
     # Iterate over grid info
     for grid_obj in grid_array:
         row = {
             "h3_id": grid_obj.get_id(),
-            "centroid": grid_obj.get_centroid(),
+            "centroid_latitude": grid_obj.get_centroid()[0],
+            "centroid_longitude": grid_obj.get_centroid()[1],
             "centroid_to_station_km": grid_obj.get_centroid_to_station(),
             "population": grid_obj.get_population(),
             "station_count": grid_obj.get_station_count(),
