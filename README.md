@@ -6,12 +6,16 @@ The purpose of this project is to help identify areas in Japan that are underser
 ### Project Techniques Steps
 1. Acquire station data from OpenStreetMap sources (API or Geofabrik extracts)
 2. Build Japan's national boundaries from national coastline geometry and generate H3 hex grids for analysis
+   1. <img src="images/grids.png" width="200">
 3. Use geopandas spatial join between stations and H3 cells to compute per-grid station count, station lists, and coverage
 4. Perform raster zonal analysis on WorldPop data and assign population to each H3 grid
+   1. <img src="images/population.png" width="300">
 5. Calculate neighbor distances by measuring distance from each H3 centroid to the nearest station for each grid cell
 6. Create unified analysis tables for downstream analysis
 7. Analysis with correlation heatmaps and clustering (KMeans) to identify outlier grids and population patterns
+   1. <img src="images/2025-distance.png" width="400">
 8. Compare historical snapshots for population and station change trends, then visualize results with Folium maps and matplotlib charts
+   1. <img src="images/station-count.png" width="300"> <img src="images/station-change.png" width="300">
 
 ### Project Report
 A report of the findings from the Jupyter notebook can be found [here](local/Report.pdf)
