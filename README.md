@@ -6,7 +6,7 @@ The purpose of this project is to help identify areas in Japan that are underser
 ### Project Techniques Steps
 1. Acquire station data from OpenStreetMap sources (API or Geofabrik extracts)
 2. Build Japan's national boundaries from national coastline geometry and generate H3 hex grids for analysis
-   1. <img src="images/grids.png" width="200">
+   1. <img src="images/grids.png" width="300">
 3. Use geopandas spatial join between stations and H3 cells to compute per-grid station count, station lists, and coverage
 4. Perform raster zonal analysis on WorldPop data and assign population to each H3 grid
    1. <img src="images/population.png" width="300">
