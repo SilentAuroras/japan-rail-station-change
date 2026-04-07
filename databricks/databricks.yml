@@ -28,10 +28,12 @@ resources:
           - geopandas
           - h3
           - h3pandas
+          - matplotlib
           - numpy
           - overpy
           - pandas==2.2.3 # force 2.x otherwise get "kdf not defined" error
           - shapely
+          - sklearn
 
       # Define pipeline scripts
       libraries:
@@ -50,3 +52,15 @@ resources:
         # Materialized views
         - file:
             path: "./pipeline/materialized_views.sql"
+        # Mapping Notebook
+        - file:
+            path: "./pipeline/Mapping Notebook.ipynb"
+        # MLflow for stations
+        - file:
+            path: "./pipeline/station-predictors.py"
+        # MLflow for population
+        - file:
+            path: "./pipeline/population-predictors.py"
+        # MLflow for grids
+        - file:
+            path: "./pipeline/grid-predictors.py"
