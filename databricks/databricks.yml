@@ -51,6 +51,3 @@ resources:
         # Materialized views
         - file:
             path: "./pipeline/materialized_views.sql"
-        # Mapping Notebook
-        - notebook:
-            path: "Mapping.ipynb"

@@ -26,7 +26,7 @@ def create_grid_array():
     coastline_h3 = create_coastline_h3()
 
     # Get all stations from the table
-    stations_list_df = spark.read.table("japan_rail.rail_station_changes.stations_list")
+    stations_list_df = spark.read.table("stations_list")
 
     # Pull all unique years from the df
     years_df = stations_list_df.select('year').distinct()
@@ -38,7 +38,7 @@ def create_grid_array():
     # Create final df for all years
     final_df_all_years = pd.DataFrame()
 
-    # Iterate over evey year and create grid array
+    # Iterate over every year and create grid array
     for row in years_df.collect():
 
         # Pull year from row
